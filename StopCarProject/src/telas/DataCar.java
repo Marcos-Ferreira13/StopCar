@@ -28,7 +28,6 @@ public class DataCar{
 		List<String> textoCarros = this.recuperaTextoDeArquivo(ARQUIVO_CARROS);
 		for (String linha: textoCarros) {
 			String [] dadosLinha = linha.split("#");
-			System.out.println(dadosLinha.length);
 			if(dadosLinha[3].equalsIgnoreCase("PIPAPE")){
 				listaCarros.add(new Carro(dadosLinha[0],dadosLinha[1],Double.parseDouble(dadosLinha[2]),CategoriaCarro.PICAPE));
 			}else if(dadosLinha[3].equalsIgnoreCase("SUV")){

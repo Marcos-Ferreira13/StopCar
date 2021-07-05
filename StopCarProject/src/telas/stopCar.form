@@ -64,16 +64,10 @@
               <Font name="Segoe UI" size="16" style="0"/>
             </Property>
           </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="AlugarCarroMenu">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Alugar carro"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AlugarCarroMenuActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="AlugarItemMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AlugarItemActionPerformed"/>
+          </Events>
         </Menu>
         <Menu class="javax.swing.JMenu" name="CadastrosItem">
           <Properties>

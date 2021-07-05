@@ -55,7 +55,6 @@ public class stopCar extends javax.swing.JFrame {
         hora = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         AlugarItem = new javax.swing.JMenu();
-        AlugarCarroMenu = new javax.swing.JMenuItem();
         CadastrosItem = new javax.swing.JMenu();
         carrosMenu = new javax.swing.JMenuItem();
         clienteMenu = new javax.swing.JMenuItem();
@@ -108,15 +107,16 @@ public class stopCar extends javax.swing.JFrame {
 
         AlugarItem.setText("Alugar");
         AlugarItem.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-
-        AlugarCarroMenu.setText("Alugar carro");
-        AlugarCarroMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AlugarCarroMenuActionPerformed(evt);
+        AlugarItem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AlugarItemMouseClicked(evt);
             }
         });
-        AlugarItem.add(AlugarCarroMenu);
-
+        AlugarItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AlugarItemActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(AlugarItem);
 
         CadastrosItem.setText("Cadastrar");
@@ -227,7 +227,6 @@ public class stopCar extends javax.swing.JFrame {
             hora.setText(formato.format(data));
             List<Cliente> clientes = save.recuperaUsuariosDeArquivo();
             List<Carro> carros = save.recuperaCarrosDeArquivo();
-            System.out.println(save.recuperaCarrosDeArquivo());
             this.sistema.recadastrandoClientes(clientes);
             this.sistema.recadastrandoCarros(carros);
             
@@ -249,8 +248,6 @@ public class stopCar extends javax.swing.JFrame {
         try {
             save.gravaClienteEmArquivo(this.sistema.retornaTodosOsClientes());
             save.gravaCarroEmArquivo(this.sistema.retornaTodosOsCarros());
-            System.out.println(this.sistema.retornaTodosOsClientes());
-            System.out.println(this.sistema.retornaTodosOsCarros());
         } catch (IOException e) {
             // TODO Auto-generated catch block
             System.out.println(e.getMessage());
@@ -273,8 +270,6 @@ public class stopCar extends javax.swing.JFrame {
         try {
             save.gravaClienteEmArquivo(this.sistema.retornaTodosOsClientes());
             save.gravaCarroEmArquivo(this.sistema.retornaTodosOsCarros());
-            System.out.println(this.sistema.retornaTodosOsClientes());
-            System.out.println(this.sistema.retornaTodosOsCarros());
         } catch (IOException e) {
             // TODO Auto-generated catch block
             System.out.println(e.getMessage());
@@ -287,8 +282,6 @@ public class stopCar extends javax.swing.JFrame {
            try {
             save.gravaClienteEmArquivo(this.sistema.retornaTodosOsClientes());
             save.gravaCarroEmArquivo(this.sistema.retornaTodosOsCarros());
-            System.out.println(this.sistema.retornaTodosOsClientes());
-            System.out.println(this.sistema.retornaTodosOsCarros());
         } catch (IOException e) {
             // TODO Auto-generated catch block
             System.out.println(e.getMessage());
@@ -296,6 +289,14 @@ public class stopCar extends javax.swing.JFrame {
          JOptionPane.showMessageDialog(null, "Até mais");
          System.exit(0);
     }//GEN-LAST:event_jMenu6MouseClicked
+
+    private void AlugarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlugarItemActionPerformed
+        
+    }//GEN-LAST:event_AlugarItemActionPerformed
+
+    private void AlugarItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AlugarItemMouseClicked
+        new AlugarFrame(sistema).setVisible(true);
+    }//GEN-LAST:event_AlugarItemMouseClicked
 
     /**
      * @param args the command line arguments
@@ -337,7 +338,6 @@ public class stopCar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem AlugarCarroMenu;
     private javax.swing.JMenu AlugarItem;
     private javax.swing.JMenu CadastrosItem;
     private javax.swing.JMenuItem buscaClientes;
